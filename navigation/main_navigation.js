@@ -1,41 +1,20 @@
 import React from 'react';
 import { Container, Header, Title, Content, Body, Text, Icon } from 'native-base';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
+import ToDoAll from '../containers/todo_all';
 
-class AllToDo extends React.Component {    
+class AllToDo extends React.Component {   
   render() {    
     return (
-        <Container>
-            <Header>                
-                <Body>
-                    <Title>All</Title>
-                </Body>                
-            </Header>
-            <Content>              
-              <Text>
-                  All Section
-              </Text>              
-            </Content>                
-        </Container>
+      <ToDoAll show_new_todo = { true } screen = "All" />
     );
-    }
+  }
 }
 
 class ActiveToDo extends React.Component {
   render() {
     return (
-        <Container>
-        <Header>          
-          <Body>
-            <Title>Active</Title>
-          </Body>          
-        </Header>
-        <Content>
-          <Text>
-            Active Section
-          </Text>
-        </Content>    
-      </Container>
+      <ToDoAll show_new_todo = { false } screen = "Active" />
     );
   }
 }
@@ -43,18 +22,7 @@ class ActiveToDo extends React.Component {
 class CompletedToDo extends React.Component {
   render() {
     return (
-        <Container>
-        <Header>          
-          <Body>
-            <Title>Completed</Title>
-          </Body>          
-        </Header>
-        <Content>
-          <Text>
-            Completed Section
-          </Text>
-        </Content>
-      </Container>
+      <ToDoAll show_new_todo = { false } screen = "Completed" />
     );
   }
 }
@@ -86,5 +54,5 @@ export default TabNavigator({
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
   animationEnabled: true,
-  swipeEnabled: false,
+  swipeEnabled: true,
 });
